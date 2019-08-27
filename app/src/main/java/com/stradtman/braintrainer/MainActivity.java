@@ -7,6 +7,7 @@ import android.os.CountDownTimer;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -26,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
     TextView resultTextView;
     TextView pointsTextView;
     TextView timerTextView;
+    RelativeLayout gameRelativeLayout;
     ArrayList<Integer> answers = new ArrayList<Integer>();
     int locationOfCorrectAnswer;
     int score = 0;
@@ -38,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
         pointsTextView.setText("0/0");
         resultTextView.setText("");
         playAgainButton.setVisibility(View.INVISIBLE);
+        generateQuestion();
         new CountDownTimer(30100, 1000) {
             @Override
             public void onTick(long millisUntilFinished) {
@@ -96,6 +99,8 @@ public class MainActivity extends AppCompatActivity {
     public void start(View view) {
         Log.d(TAG, "start: starts");
         buttonStart.setVisibility(View.INVISIBLE);
+        gameRelativeLayout.setVisibility(RelativeLayout.VISIBLE);
+        playAgain(findViewById(R.id.playAgainButton));
         Log.d(TAG, "start: ends");
     }
 
@@ -114,9 +119,7 @@ public class MainActivity extends AppCompatActivity {
         pointsTextView = (TextView) findViewById(R.id.scoreTextView);
         timerTextView = (TextView) findViewById(R.id.timerTextView);
         playAgainButton = (Button) findViewById(R.id.playAgainButton);
-
-        generateQuestion();
-
+        gameRelativeLayout = (RelativeLayout) findViewById(R.id.gameRelative);
         playAgain(findViewById(R.id.playAgainButton));
     }
 }
