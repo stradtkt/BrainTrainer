@@ -149,4 +149,18 @@
         android:layout_marginTop="100dp"
         android:paddingTop="40dp"
         android:textSize="40sp" />
+
+    <Button
+        android:id="@+id/playAgainButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="100dp"
+        android:background="?attr/colorError"
+        android:onClick="playAgain"
+        android:padding="20dp"
+        android:text="Play Again"
+        android:textColor="#fff"
+        android:visibility="invisible" />
 </RelativeLayout>
